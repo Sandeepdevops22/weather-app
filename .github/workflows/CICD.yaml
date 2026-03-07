@@ -36,4 +36,4 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         sudo kubectl apply -f K8s/
-        sudo kubectl set image deployment/weather-app weather-app=${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
+        sudo kubectl set image deployment/weather-app weather-container=${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
