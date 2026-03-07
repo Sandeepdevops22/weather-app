@@ -32,10 +32,7 @@ jobs:
     - name: Push Image
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
-
-    - name: root
-      run: |
-        sudo su -
+        
     - name: Configure AWS Credentruials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -45,7 +42,7 @@ jobs:
        
     - name: Deploy to Kubernetes
       run: |
-        sudo aws eks update-kubeconfig --region ap-southeast-1 --name weather-eks
-        sudo kubectl get nodes
-        sudo kubectl apply -f K8s/
-        sudo kubectl set image deployment/weather-app weather-container=${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
+        aws eks update-kubeconfig --region ap-southeast-1 --name weather-eks
+        kubectl get nodes
+        kubectl apply -f K8s/
+        kubectl set image deployment/weather-app weather-container=${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
