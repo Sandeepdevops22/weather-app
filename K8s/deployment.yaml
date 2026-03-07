@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: weather-container
-        image: dockerhub_username/weather-app:$GITHUB_RUN_NUMBER
+        image: ${{ secrets.DOCKER_USERNAME }}/weather-app:$GITHUB_RUN_NUMBER
         ports:
         - containerPort: 5000
         volumeMounts:
