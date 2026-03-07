@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: weather-container
-        image: vinayak432/weather-app:latest
+        image: vinayak432/weather-app:${IMAGE_TAG}
         ports:
         - containerPort: 5000
         volumeMounts:
