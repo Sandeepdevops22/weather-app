@@ -6,7 +6,7 @@ on:
       - main
       - feature-1
  
-jobs:
+jobs: 
 
   build:
     runs-on: self-hosted
