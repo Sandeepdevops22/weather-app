@@ -33,3 +33,7 @@ jobs:
     - name: Push Image
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/weather-app:$GITHUB_RUN_NUMBER
+       
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/
