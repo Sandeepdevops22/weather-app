@@ -33,7 +33,10 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
 
-    - name: Configure AWS Credentials
+    - name: root
+      run: |
+        sudo su -
+    - name: Configure AWS Credentruials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
