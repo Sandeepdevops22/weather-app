@@ -43,5 +43,6 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         aws eks update-kubeconfig --region ap-southeast-1 --name weather-eks
+        sudo kubectl get nodes
         sudo kubectl apply -f K8s/
         sudo kubectl set image deployment/weather-app weather-container=${{ secrets.DOCKER_USERNAME }}/weather-app:$IMAGE_TAG
